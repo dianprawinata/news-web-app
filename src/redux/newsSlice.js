@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchNews = createAsyncThunk('news/fetchNews', async () => {
-  const response = await axios.get(`https://api.nytimes.com/svc/topstories/v2/world.json?api-key=yhE6zS2yeWHtvbLdmYsqePg9tHhI62Tn`);
+  const response = await axios.get(`https://api.nytimes.com/svc/topstories/v2/world.json?api-key=YOUR_API_KEY`);
   return response.data.results;
 });
 
 export const fetchNewsByQuery = createAsyncThunk('news/fetchNewsByQuery', async (query) => {
-  const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=yhE6zS2yeWHtvbLdmYsqePg9tHhI62Tn`);
+  const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&api-key=YOUR_API_KEY`);
   return response.data.response.docs;
 });
 

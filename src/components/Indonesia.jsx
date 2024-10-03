@@ -1,32 +1,29 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchNews } from '../redux/newsSlice';
+import { fetchNewsByQuery } from '../redux/newsSlice'; // Import fetchNewsByQuery
 import { addToSaved, removeFromSaved } from '../redux/savedSlice';
 
 const Indonesia = () => {
   const dispatch = useDispatch();
-  const news = useSelector((state) => state.news.articles);
+  const news = useSelector((state) => state.news.articles); // Fetching articles from the Redux store
   const newsStatus = useSelector((state) => state.news.status);
   const savedArticles = useSelector((state) => state.saved.articles) || [];
 
   useEffect(() => {
     if (newsStatus === 'idle') {
-      dispatch(fetchNews());
+      dispatch(fetchNewsByQuery('indonesia')); // Fetch news with keyword 'indonesia'
     }
   }, [newsStatus, dispatch]);
-
-  // Filter only Indonesian news
-  const indonesianNews = news.filter(article => article.section === 'World' && article.title.includes('Indonesia'));
 
   const isSaved = (article) => savedArticles.some(saved => saved.url === article.url);
 
   return (
     <div>
-      <h1 className="mb-4">Latest News from Indonesia</h1>
+      <h1 className="mb-4">News about Indonesia</h1>
       {newsStatus === 'loading' && <p>Loading...</p>}
       {newsStatus === 'succeeded' && (
         <div className="row">
-          {indonesianNews.map((article) => (
+          {news.map((article) => (
             <div className="col-md-4 mb-4" key={article.url}>
               <div className="card">
                 <div className="card-body">
