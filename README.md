@@ -6,7 +6,7 @@ The **News Web App** is a React-based project designed to display the latest new
 
 ## 🔗 Live Demo
 
-[View the live demo of the application here](#).
+[View the live demo of the application here](https://news-web-app-eta.vercel.app/).
 
 ## 🛠️ Features
 
@@ -35,6 +35,14 @@ The **News Web App** is a React-based project designed to display the latest new
 ### Prerequisites
 
 - Node.js (>=14.x)
-- NPM or Yarn
-- React (>=18.x)
+- NPM
 - [New York Times API Key](https://developer.nytimes.com/get-started)
+- "@reduxjs/toolkit": "^2.2.7",
+- "axios": "^1.7.7",
+- "bootstrap": "^5.3.3",
+- "react": "^18.3.1",
+- "react-bootstrap": "^2.10.5",
+- "react-dom": "^18.3.1",
+- "react-redux": "^9.1.2",
+- "react-router-dom": "^6.26.2",
+- "redux": "^5.0.1"
