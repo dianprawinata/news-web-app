@@ -25,7 +25,6 @@ const Card = ({ article }) => {
   useEffect(() => {
     const articleSavedStatus = savedArticles.some((a) => a._id === articleId);
     setIsSaved(articleSavedStatus);
-    console.log(`${article.web_url}, Updated isSaved: ${articleSavedStatus}`);
   }, [savedArticles, articleId]);
 
   const handleSave = () => {
