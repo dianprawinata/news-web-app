@@ -1,23 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Indonesia from './components/Indonesia';
-import Programming from './components/Programming';
-import Saved from './components/Saved';
-import Search from './components/Search';
+import NavbarComponent from './components/Navbar';
+import IndonesiaPage from './pages/Indonesia';
+import ProgrammingPage from './pages/Programming';
+import SearchPage from './pages/Search';
+import SavedPage from './pages/Saved';
 
 const App = () => {
   return (
     <Router>
-      <Navbar />
-      <div className="container mt-4">
-        <Routes>
-          <Route path="/" element={<Indonesia />} />
-          <Route path="/programming" element={<Programming />} />
-          <Route path="/saved" element={<Saved />} />
-          <Route path="/search" element={<Search />} />
-        </Routes>
-      </div>
+      <NavbarComponent />
+      <Routes>
+        <Route path="/" element={<IndonesiaPage />} />
+        <Route path="/programming" element={<ProgrammingPage />} />
+        <Route path="/saved" element={<SavedPage />} />
+        <Route path="/search/:searchTerm" element={<SearchPage />} />
+      </Routes>
     </Router>
   );
 };
